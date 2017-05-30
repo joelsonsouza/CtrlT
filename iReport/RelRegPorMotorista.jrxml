@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RelRegPorMotorista" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8379ce08-a7f0-4eea-b02a-726a2c02882c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[select a.id_regatividade as id, a.dtativ, a.setoratendido, c.descricao as desc from tbl_reg_ativ as a inner join tbl_motorista as b
+                on (a.id_motorista = b.id_motorista) inner join tbl_tipoatividade c
+                on (a.id_tipoatividade = c.id_tipoatividade)   order by a.id_regatividade desc]]>
+	</queryString>
+	<field name="id" class="java.lang.Integer"/>
+	<field name="dtativ" class="java.sql.Date"/>
+	<field name="setoratendido" class="java.lang.String"/>
+	<field name="desc" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="18" width="100" height="20" uuid="017fcfee-5c6d-4dc1-8f32-3278b01bfba5"/>
+				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="119" y="18" width="100" height="20" uuid="ecb13709-8f39-4fc4-a5d3-4e4451a72759"/>
+				<textFieldExpression><![CDATA[$F{dtativ}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="18" width="100" height="20" uuid="1ac118d0-6cf8-4120-a0a8-94126dbab0d3"/>
+				<textFieldExpression><![CDATA[$F{setoratendido}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="329" y="18" width="100" height="20" uuid="4bf0f5af-3e2e-4a7e-8d33-57ed06e194ac"/>
+				<textFieldExpression><![CDATA[$F{desc}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
